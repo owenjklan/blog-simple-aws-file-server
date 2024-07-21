@@ -7,8 +7,13 @@ BUCKET_NAME = "owenjklan-blog"
 s3_client = boto3.client('s3')
 
 def lambda_handler(event, context):
-    # TODO implement
-    return {
-        'statusCode': 200,
-        'body': json.dumps('Hello from Lambda!')
-    }
+    path_params = event.get("pathParameters")
+
+    if not path_params or not path_params["filename"]:
+        return {
+            'statusCode': 400,
+            'body': json.dumps('No filename provided. Create an index!')
+        }
+
+    filename = path_params.get("filename")
+    return {'statusCode': 200, 'body': json.dumps(f"You requested '{filename}'")}
