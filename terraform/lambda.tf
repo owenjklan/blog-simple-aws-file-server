@@ -12,7 +12,7 @@ resource "aws_lambda_permission" "apigw_lambda" {
 # Package our Python source into a ZIP file for deployment
 data "archive_file" "lambda" {
     type = "zip"
-    source_file = "../src/download-file.py"
+    source_file = "../src/download_file.py"
     output_path = "lambda_function_payload.zip"
 }
 
@@ -22,6 +22,6 @@ resource "aws_lambda_function" "download_file" {
     function_name = "download-file-blog"
     role = aws_iam_role.iam_for_lambda.arn
 
-    handler = "index.lambda_handler"
+    handler = "download_file.lambda_handler"
     runtime = "python3.12"
 }

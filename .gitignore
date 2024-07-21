@@ -1,5 +1,14 @@
 .idea/
 
+# Terraform artefacts
+.terraform/
+.terraform.*
+builds/
+lambda_function_payload.zip
+terraform.tfstate
+terraform.tfstate.backup
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
