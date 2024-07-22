@@ -1,11 +1,11 @@
 variable "my_region" {
     type = string
     description = "AWS Region"
-    default = "ap-southeast-2"
+    default = ""  # Populate with your AWS region
 }
 
 variable "account_id" {
   type = string
   description = "AWS Account ID"
-  default = "343871503877"
+  default = ""  # Populate with your AWS account ID (12 digits)
 }
